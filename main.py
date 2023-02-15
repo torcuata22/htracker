@@ -48,10 +48,21 @@ pixel_data={
 "quantity":"30"
 }
 
-response = requests.post(url=pixel_creation_endpoint, json=pixel_data, headers=headers)
-print(response.text)
+# response = requests.post(url=pixel_creation_endpoint, json=pixel_data, headers=headers)
+# print(response.text)
 
 #PUT and DELETE, from docs:
 #PUT: url=/v1/users/<username>/graphs/<graphID>/<yyyyMMdd>
+update_url = f"{pixela_endpoint}/{USERNAME}/graphs/{GRAPH_ID}/{today.strftime('%Y%m%d')}"
 #need headers
 #need update_config: quantity as string (required)
+update_pixel = {
+    "quantity":"60"
+}
+response = requests.put(url=update_url, json=update_pixel, headers=headers)
+
+#delete: 
+delete_url = f"{pixela_endpoint}/{USERNAME}/graphs/{GRAPH_ID}/{today.strftime('%Y%m%d')}"
+#need headers
+
+response = requests.delete(url=delete_url, headers = headers)
