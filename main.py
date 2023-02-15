@@ -41,9 +41,11 @@ headers = {
 
 #to add pixel to graph: /v1/users/<username>/graphs/<graphID>
 pixel_creation_endpoint = f'{pixela_endpoint}/{USERNAME}/graphs/{GRAPH_ID}'
+today = datetime.now()
+#print(today.strftime("%Y%m%d"))
 pixel_data={
-"date":"20230213",
-"quantity":"15"
+"date":today.strftime("%Y%m%d"),
+"quantity":"30"
 }
 
 response = requests.post(url=pixel_creation_endpoint, json=pixel_data, headers=headers)
