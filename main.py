@@ -51,3 +51,7 @@ pixel_data={
 response = requests.post(url=pixel_creation_endpoint, json=pixel_data, headers=headers)
 print(response.text)
 
+#PUT and DELETE, from docs:
+#PUT: url=/v1/users/<username>/graphs/<graphID>/<yyyyMMdd>
+#need headers
+#need update_config: quantity as string (required)
